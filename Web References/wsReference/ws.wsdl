@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://jupiterws.dna.com/soap/JupiterWS" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://jupiterws.dna.com/soap/JupiterWS" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://jupiterws.dna.com/soap/JupiterWS">
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <xsd:import namespace="http://schemas.xmlsoap.org/wsdl/" />
+      <xsd:complexType name="AgentLogin">
+        <xsd:sequence>
+          <xsd:element name="result" type="xsd:string" />
+          <xsd:element name="agentId" type="xsd:integer" />
+          <xsd:element name="domainName" type="xsd:integer" />
+          <xsd:element name="sessionId" type="xsd:string" />
+          <xsd:element name="sipUserName" type="xsd:string" />
+          <xsd:element name="sipAuth" type="xsd:string" />
+          <xsd:element name="sipPassword" type="xsd:string" />
+          <xsd:element name="sipServerIp" type="xsd:string" />
+          <xsd:element name="sipServerHostname" type="xsd:string" />
+          <xsd:element name="sipServerPort" type="xsd:string" />
+          <xsd:element name="states" type="xsd:string" />
+          <xsd:element name="skills" type="xsd:string" />
+          <xsd:element name="defMicrophone" type="xsd:string" />
+          <xsd:element name="defSpeaker" type="xsd:string" />
+          <xsd:element name="defAudioCodec" type="xsd:string" />
+          <xsd:element name="defVideoCodec" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="AgentGetStates">
+        <xsd:sequence>
+          <xsd:element name="states" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="AgentChangeState">
+        <xsd:sequence>
+          <xsd:element name="result" type="xsd:string" />
+          <xsd:element name="reason" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="AgentGetAnnounce">
+        <xsd:sequence>
+          <xsd:element name="result" type="xsd:string" />
+          <xsd:element name="reason" type="xsd:string" />
+          <xsd:element name="records" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="AgentGetAnnounceFiles">
+        <xsd:sequence>
+          <xsd:element name="result" type="xsd:string" />
+          <xsd:element name="reason" type="xsd:string" />
+          <xsd:element name="recordFile1" type="xsd:string" />
+          <xsd:element name="recordContent1" type="xsd:base64Binary" />
+          <xsd:element name="recordFile2" type="xsd:string" />
+          <xsd:element name="recordContent2" type="xsd:base64Binary" />
+          <xsd:element name="recordFile3" type="xsd:string" />
+          <xsd:element name="recordContent3" type="xsd:base64Binary" />
+          <xsd:element name="recordFile4" type="xsd:string" />
+          <xsd:element name="recordContent4" type="xsd:base64Binary" />
+          <xsd:element name="recordFile5" type="xsd:string" />
+          <xsd:element name="recordContent5" type="xsd:base64Binary" />
+          <xsd:element name="recordFile6" type="xsd:string" />
+          <xsd:element name="recordContent6" type="xsd:base64Binary" />
+          <xsd:element name="recordFile7" type="xsd:string" />
+          <xsd:element name="recordContent7" type="xsd:base64Binary" />
+          <xsd:element name="recordFile8" type="xsd:string" />
+          <xsd:element name="recordContent8" type="xsd:base64Binary" />
+          <xsd:element name="recordFile9" type="xsd:string" />
+          <xsd:element name="recordContent9" type="xsd:base64Binary" />
+          <xsd:element name="recordFile10" type="xsd:string" />
+          <xsd:element name="recordContent10" type="xsd:base64Binary" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="AgentRemoveAnnounce">
+        <xsd:sequence>
+          <xsd:element name="result" type="xsd:string" />
+          <xsd:element name="reason" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="AgentAddAnnounce">
+        <xsd:sequence>
+          <xsd:element name="result" type="xsd:string" />
+          <xsd:element name="reason" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="AgentSetAnnounceState">
+        <xsd:sequence>
+          <xsd:element name="result" type="xsd:string" />
+          <xsd:element name="reason" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="AgentSetSoundOption">
+        <xsd:sequence>
+          <xsd:element name="result" type="xsd:string" />
+          <xsd:element name="reason" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="GetPublicIp">
+        <xsd:sequence>
+          <xsd:element name="result" type="xsd:string" />
+          <xsd:element name="publicIp" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="getDateTimeRequest" />
+  <wsdl:message name="getDateTimeResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="j.AgentLoginRequest">
+    <wsdl:part name="p" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="j.AgentLoginResponse">
+    <wsdl:part name="return" type="tns:AgentLogin" />
+  </wsdl:message>
+  <wsdl:message name="j.AgentGetStatesRequest">
+    <wsdl:part name="p" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="j.AgentGetStatesResponse">
+    <wsdl:part name="return" type="tns:AgentGetStates" />
+  </wsdl:message>
+  <wsdl:message name="j.AgentChangeStateRequest">
+    <wsdl:part name="p" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="j.AgentChangeStateResponse">
+    <wsdl:part name="return" type="tns:AgentChangeState" />
+  </wsdl:message>
+  <wsdl:message name="j.AgentGetAnnounceRequest">
+    <wsdl:part name="p" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="j.AgentGetAnnounceResponse">
+    <wsdl:part name="return" type="tns:AgentGetAnnounce" />
+  </wsdl:message>
+  <wsdl:message name="j.AgentGetAnnounceFilesRequest">
+    <wsdl:part name="p" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="j.AgentGetAnnounceFilesResponse">
+    <wsdl:part name="return" type="tns:AgentGetAnnounceFiles" />
+  </wsdl:message>
+  <wsdl:message name="j.AgentRemoveAnnounceRequest">
+    <wsdl:part name="p" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="j.AgentRemoveAnnounceResponse">
+    <wsdl:part name="return" type="tns:AgentRemoveAnnounce" />
+  </wsdl:message>
+  <wsdl:message name="j.AgentAddAnnounceRequest">
+    <wsdl:part name="p" type="xsd:string" />
+    <wsdl:part name="fileContent" type="xsd:base64Binary" />
+  </wsdl:message>
+  <wsdl:message name="j.AgentAddAnnounceResponse">
+    <wsdl:part name="return" type="tns:AgentAddAnnounce" />
+  </wsdl:message>
+  <wsdl:message name="j.AgentSetAnnounceStateRequest">
+    <wsdl:part name="p" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="j.AgentSetAnnounceStateResponse">
+    <wsdl:part name="return" type="tns:AgentSetAnnounceState" />
+  </wsdl:message>
+  <wsdl:message name="j.AgentSetSoundOptionRequest">
+    <wsdl:part name="p" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="j.AgentSetSoundOptionResponse">
+    <wsdl:part name="return" type="tns:AgentSetSoundOption" />
+  </wsdl:message>
+  <wsdl:message name="j.GetPublicIpRequest">
+    <wsdl:part name="p" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="j.GetPublicIpResponse">
+    <wsdl:part name="return" type="tns:GetPublicIp" />
+  </wsdl:message>
+  <wsdl:portType name="JupiterWSPortType">
+    <wsdl:operation name="getDateTime">
+      <documentation>A simple Hello World web method</documentation>
+      <wsdl:input message="tns:getDateTimeRequest" />
+      <wsdl:output message="tns:getDateTimeResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="j.AgentLogin">
+      <documentation>A simple Hello World web method</documentation>
+      <wsdl:input message="tns:j.AgentLoginRequest" />
+      <wsdl:output message="tns:j.AgentLoginResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="j.AgentGetStates">
+      <documentation>A simple Hello World web method</documentation>
+      <wsdl:input message="tns:j.AgentGetStatesRequest" />
+      <wsdl:output message="tns:j.AgentGetStatesResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="j.AgentChangeState">
+      <documentation>A simple Hello World web method</documentation>
+      <wsdl:input message="tns:j.AgentChangeStateRequest" />
+      <wsdl:output message="tns:j.AgentChangeStateResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="j.AgentGetAnnounce">
+      <documentation>A simple Hello World web method</documentation>
+      <wsdl:input message="tns:j.AgentGetAnnounceRequest" />
+      <wsdl:output message="tns:j.AgentGetAnnounceResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="j.AgentGetAnnounceFiles">
+      <documentation>A simple Hello World web method</documentation>
+      <wsdl:input message="tns:j.AgentGetAnnounceFilesRequest" />
+      <wsdl:output message="tns:j.AgentGetAnnounceFilesResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="j.AgentRemoveAnnounce">
+      <documentation>A simple Hello World web method</documentation>
+      <wsdl:input message="tns:j.AgentRemoveAnnounceRequest" />
+      <wsdl:output message="tns:j.AgentRemoveAnnounceResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="j.AgentAddAnnounce">
+      <documentation>A simple Hello World web method</documentation>
+      <wsdl:input message="tns:j.AgentAddAnnounceRequest" />
+      <wsdl:output message="tns:j.AgentAddAnnounceResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="j.AgentSetAnnounceState">
+      <documentation>A simple Hello World web method</documentation>
+      <wsdl:input message="tns:j.AgentSetAnnounceStateRequest" />
+      <wsdl:output message="tns:j.AgentSetAnnounceStateResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="j.AgentSetSoundOption">
+      <documentation>A simple Hello World web method</documentation>
+      <wsdl:input message="tns:j.AgentSetSoundOptionRequest" />
+      <wsdl:output message="tns:j.AgentSetSoundOptionResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="j.GetPublicIp">
+      <documentation>A simple Hello World web method</documentation>
+      <wsdl:input message="tns:j.GetPublicIpRequest" />
+      <wsdl:output message="tns:j.GetPublicIpResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="JupiterWSBinding" type="tns:JupiterWSPortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <wsdl:operation name="getDateTime">
+      <soap:operation soapAction="http://jupiterws.dna.com/ws.php/getDateTime" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="j.AgentLogin">
+      <soap:operation soapAction="http://jupiterws.dna.com/ws.php/j.AgentLogin" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="j.AgentGetStates">
+      <soap:operation soapAction="http://jupiterws.dna.com/ws.php/j.AgentGetStates" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="j.AgentChangeState">
+      <soap:operation soapAction="http://jupiterws.dna.com/ws.php/j.AgentChangeState" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="j.AgentGetAnnounce">
+      <soap:operation soapAction="http://jupiterws.dna.com/ws.php/j.AgentGetAnnounce" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="j.AgentGetAnnounceFiles">
+      <soap:operation soapAction="http://jupiterws.dna.com/ws.php/j.AgentGetAnnounceFiles" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="j.AgentRemoveAnnounce">
+      <soap:operation soapAction="http://jupiterws.dna.com/ws.php/j.AgentRemoveAnnounce" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="j.AgentAddAnnounce">
+      <soap:operation soapAction="http://jupiterws.dna.com/ws.php/j.AgentAddAnnounce" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="j.AgentSetAnnounceState">
+      <soap:operation soapAction="http://jupiterws.dna.com/ws.php/j.AgentSetAnnounceState" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="j.AgentSetSoundOption">
+      <soap:operation soapAction="http://jupiterws.dna.com/ws.php/j.AgentSetSoundOption" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="j.GetPublicIp">
+      <soap:operation soapAction="http://jupiterws.dna.com/ws.php/j.GetPublicIp" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="JupiterWS">
+    <wsdl:port name="JupiterWSPort" binding="tns:JupiterWSBinding">
+      <soap:address location="http://jupiterws.dna.com/ws.php" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
